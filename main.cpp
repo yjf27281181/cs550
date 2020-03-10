@@ -57,7 +57,9 @@ int main()
 	}
 
 	char buffer[1024];
-	char msg[] = { " message from c++" };
+	char msg[1024];
+	int msgLen = 0;
+	cout << msgLen << endl;
 	//创建另外一个线程
 	//std::thread t(thread_task);
 	//t.join();
@@ -83,13 +85,35 @@ int main()
 		{
 			break;
 		}
+		
+		string receivedMsg;
 		if (len != 0) {
-			cout << buffer << endl;
-			printf("msg from java is %s\n", buffer);//如果有收到数据则输出数据
+			
+			
+			printf("msg from java is:");//如果有收到数据则输出数据
+			for (int i = 0; i < len; i++) {
+				if (i < 2) continue;
+				cout << buffer[i];
+				receivedMsg += buffer[i];
+			}
+			cout << endl;
+			cout << "receivedMsg: " << receivedMsg << endl;
+			string big_data = "bigData";
+			cout << big_data.length() << " length " << receivedMsg.length() << endl;
+			if (receivedMsg == big_data) {
+				strcpy(msg, "  1 [L1][address] [L2][datalength]");
+			}
+			else {
+				strcpy(msg, "  0 databody");
+			}
+			msgLen = strlen(msg);
+			msg[0] = buffer[0];
+			msg[1] = msgLen - 2;
 		}
 		
+		
 		//必须要有返回数据， 这样才算一个完整的请求
-		send(conn, buffer, len, 0);//向TCP连接的另一端发送数据。
+		send(conn, msg, msgLen, 0);//向TCP连接的另一端发送数据。
 	}
 	close(conn);//因为accpet函数连接成功后还会生成一个新的套接字描述符，结束后也需要关闭
 	close(ss);//关闭socket套接字描述符

@@ -4,11 +4,14 @@
   Starting remote build
   Compiling sources:
   main.cpp
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(77,49): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(77,49): warning :    int len = recv(conn, buffer, sizeof(buffer), 0);//��TCP���ӵ���һ�˽������ݡ�
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(77,49): warning :                                                  ^
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(60,7): warning : unused variable ‘msg’ [-Wunused-variable]
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(60,7): warning :   char msg[] = { " message from c++" };
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(60,7): warning :        ^
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(79,49): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(79,49): warning :    int len = recv(conn, buffer, sizeof(buffer), 0);//��TCP���ӵ���һ�˽������ݡ�
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(79,49): warning :                                                  ^
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(109,23): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(109,23): warning :     msgLen = strlen(msg);
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(109,23): warning :                        ^
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(111,20): warning : conversion to ‘char’ from ‘int’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(111,20): warning :     msg[1] = msgLen - 2;
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(111,20): warning :                     ^
   Linking objects
   cs550.vcxproj -> C:\YanJF\coding_files\cpp\cs550\cs550\bin\x64\Debug\cs550.out
