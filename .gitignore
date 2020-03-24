@@ -31,3 +31,8 @@ build/
 .vscode/
 bin/
 obj/
+APP/.gradle/
+APP/.idea/
+APP/out/
+APP/build/
+.Ds_Store
