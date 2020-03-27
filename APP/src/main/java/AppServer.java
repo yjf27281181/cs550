@@ -40,6 +40,7 @@ public class AppServer {
                 }
             }
         } else { // client not exists
+            System.out.println(p2Index);
             String[] hostAndPort = p2Configuration.get(p2Index).split(",");
             String host = hostAndPort[0];
             String port = hostAndPort[1];
@@ -62,18 +63,25 @@ public class AppServer {
 
     public static void main(String[] args) {
         p2Configuration = new HashMap<String, String>(){{
-            put("0", "localhost, 8000");
-            put("1", "localhost, 8001");
-            put("2", "localhost, 8002");
+            put("0", "localhost,8080");
+            put("1", "localhost,8080");
+            put("2", "localhost,8080");
         }};
         connectionPool = new HashMap<>();
-        dataToP2 = new HashMap<>();
+        dataToP2 = new HashMap<String, String>(){{
+            put("0", "0");
+            put("1", "1");
+            put("2", "2");
+        }};
 
         DummyRequest dq1 = new DummyRequest("1", "get");
-        DummyRequest dq2 = new DummyRequest("2", "get");
-        DummyRequest dq3 = new DummyRequest("3", "set");
+//        DummyRequest dq2 = new DummyRequest("2", "set");
+//        DummyRequest dq3 = new DummyRequest("3", "set");
+//        DummyRequest dq4 = new DummyRequest("4", "set");
+//        DummyRequest dq5 = new DummyRequest("5", "set");
+//        DummyRequest dq6 = new DummyRequest("6", "get");
 
-        DummyRequest[] requests = {dq1, dq2, dq3};
+        DummyRequest[] requests = {dq1};
 
         for (DummyRequest dq : requests) {
             System.out.println(processRequest(dq));
@@ -100,7 +108,6 @@ class JedisClient {
 
     public Jedis jedis;
     public boolean isAvailable;
-
     public JedisClient(Jedis jedis, boolean isAvailable) {
         this.jedis = jedis;
         this.isAvailable = isAvailable;
