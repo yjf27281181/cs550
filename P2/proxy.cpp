@@ -87,7 +87,7 @@ int main(int argc, char const *argv[]) {
 
         from_app_len = read(client_socket, buffer, 1024);
 
-        printf("%s\n", buffer);
+        printf("%d - %s\n", from_app_len, buffer);
 
 
         int redis_sock = 0;

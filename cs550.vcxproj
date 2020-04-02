@@ -74,12 +74,21 @@
   <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr;C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr\linuxheader;C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr\linuxheader\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="BasicConnection.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BasicConnection.h" />
   </ItemGroup>
-  <ItemDefinitionGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalLibraryDirectories>C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr\linuxheader\include;C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr\linuxheader;C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>
