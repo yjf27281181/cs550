@@ -78,15 +78,22 @@
     <IncludePath>C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr;C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr\linuxheader;C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr\linuxheader\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="AppToP2Server.cpp" />
     <ClCompile Include="BasicConnection.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="P2RedirectServer.cpp" />
+    <ClCompile Include="Thread.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppToP2Server.h" />
     <ClInclude Include="BasicConnection.h" />
+    <ClInclude Include="P2RedirectServer.h" />
+    <ClInclude Include="Thread.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>
       <AdditionalLibraryDirectories>C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr\linuxheader\include;C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr\linuxheader;C:\YanJF\software_code\S\Visual Studio\2017\Professional\Common7\IDE\VC\Linux\include\usr;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LibraryDependencies>pthread;%(LibraryDependencies)</LibraryDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

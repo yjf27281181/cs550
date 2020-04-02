@@ -65,7 +65,7 @@ public class AppServer {
         p2Configuration = new HashMap<String, String>(){{
             put("0", "192.168.0.200,8080");
             put("1", "192.168.0.200,8080");
-            put("2", "192.168.0.200,8080");
+            put("2", "192.168.0.200,8081");
         }};
         connectionPool = new HashMap<>();
         dataToP2 = new HashMap<String, String>(){{
@@ -85,6 +85,8 @@ public class AppServer {
 
         for (DummyRequest dq : requests) {
             System.out.println(processRequest(dq));
+            DummyRequest dq2 = new DummyRequest("2", "get");
+            System.out.println(processRequest(dq2));
         }
 
     }
