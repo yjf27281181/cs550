@@ -63,7 +63,7 @@ public class AppServer {
 
     public static void main(String[] args) {
         p2Configuration = new HashMap<String, String>(){{
-            put("0", "192.168.0.200,8080");
+            //put("0", "192.168.0.200,8080");
             put("1", "192.168.0.200,8080");
             put("2", "192.168.0.200,8081");
         }};

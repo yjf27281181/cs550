@@ -1,4 +1,4 @@
-﻿生成启动时间为 2020/4/2 星期四 13:56:13。
+﻿生成启动时间为 2020/4/2 星期四 14:36:12。
      1>项目“C:\YanJF\coding_files\cpp\cs550\cs550\cs550.vcxproj”在节点 2 上(Build 个目标)。
      1>InitializeBuildStatus:
          正在创建“C:\YanJF\coding_files\cpp\cs550\cs550\obj\x64\Debug\cs550.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
@@ -6,9 +6,9 @@
          Validating sources
        _CopySources:
          Copying sources remotely to '192.168.0.200'
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp', as it is up to date.
+         Copying file 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp' to '/root/projects/cs550/AppToP2Server.cpp'
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp', as it is up to date.
-         Copying file 'C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp' to '/root/projects/cs550/main.cpp'
+         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.h', as it is up to date.
@@ -21,39 +21,35 @@
        ClCompile:
          Starting remote build
          Compiling sources:
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp', as it is up to date.
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp', as it is up to date.
          Invoking 'g++'
-         g++ -c -x c++ /root/projects/cs550/main.cpp -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -g2 -gdwarf-2 -o "/root/projects/cs550/obj/x64/Debug/main.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
-         main.cpp
-     1>C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning : extra tokens at end of #include directive [enabled by default]
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning :  #include "AppToP2Server.h";
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning :                            ^
-     1>C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning : extra tokens at end of #include directive [enabled by default]
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning :  #include "P2RedirectServer.h";
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning :                               ^
-     1>C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning : extra tokens at end of #include directive [enabled by default]
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :  #include "Thread.h";
-C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :                     ^
-     1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
-         Done compiling '/root/projects/cs550/main.cpp'
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp', as it is up to date.
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp', as it is up to date.
-         /root/projects/cs550/main.cpp:9:27: warning: extra tokens at end of #include directive [enabled by default]
-          #include "AppToP2Server.h";
-                                    ^
-         /root/projects/cs550/main.cpp:10:30: warning: extra tokens at end of #include directive [enabled by default]
-          #include "P2RedirectServer.h";
-                                       ^
-         /root/projects/cs550/main.cpp:11:20: warning: extra tokens at end of #include directive [enabled by default]
-          #include "Thread.h";
-                             ^
+         g++ -c -x c++ /root/projects/cs550/AppToP2Server.cpp -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -g2 -gdwarf-2 -o "/root/projects/cs550/obj/x64/Debug/AppToP2Server.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         AppToP2Server.cpp
          In file included from /root/projects/cs550/AppToP2Server.h:3:0,
-                          from /root/projects/cs550/main.cpp:9:
+                          from /root/projects/cs550/AppToP2Server.cpp:1:
          /root/projects/cs550/Thread.h: In constructor ‘CTask::CTask(std::string&)’:
          /root/projects/cs550/Thread.h:28:64: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
            CTask(string &taskName) : m_strTaskName(taskName), connfd(NULL) {}
                                                                          ^
+         
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning :   BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning :                                                                                ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :    int from_app_len = read(client_socket, buffer, 1024);
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :                                                       ^
+         Done compiling '/root/projects/cs550/AppToP2Server.cpp'
+         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp', as it is up to date.
+         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp', as it is up to date.
+         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp', as it is up to date.
+         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp', as it is up to date.
+         /root/projects/cs550/AppToP2Server.cpp: In member function ‘virtual int AppToP2Server::Run()’:
+         /root/projects/cs550/AppToP2Server.cpp:14:79: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
+                                                                                        ^
+         /root/projects/cs550/AppToP2Server.cpp:20:54: warning: conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+            int from_app_len = read(client_socket, buffer, 1024);
+                                                               ^
          
        Link:
          Linking objects
@@ -71,18 +67,15 @@ C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :                
 
        “C:\YanJF\coding_files\cpp\cs550\cs550\cs550.vcxproj”(Build 目标) (1) ->
        (ClCompile 目标) -> 
-         C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning : extra tokens at end of #include directive [enabled by default]
-       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning :  #include "AppToP2Server.h";
-       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning :                            ^
-         C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning : extra tokens at end of #include directive [enabled by default]
-       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning :  #include "P2RedirectServer.h";
-       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning :                               ^
-         C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning : extra tokens at end of #include directive [enabled by default]
-       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :  #include "Thread.h";
-       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :                     ^
          C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+         C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning :   BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning :                                                                                ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :    int from_app_len = read(client_socket, buffer, 1024);
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :                                                       ^
 
-    4 个警告
+    3 个警告
     0 个错误
 
-已用时间 00:00:02.84
+已用时间 00:00:03.60

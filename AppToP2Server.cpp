@@ -23,8 +23,15 @@ int AppToP2Server::Run()
 		//clientConnection->sendMsgToServer(buffer, from_app_len, buffer, client_socket);
 		//return 0;
 
-		int len_from_redis = redisConnection->sendMsgToServer(buffer, from_app_len, from_redis, -1);
-		clientConnection->sendMsgToServer(from_redis, len_from_redis, buffer, client_socket);
+		bool isRnicBusy = true;
+
+		if (isRnicBusy) {
+			/*send back a redirect msg*/
+			int len_from_redis = redisConnection->sendMsgToServer(buffer, from_app_len, from_redis, -1);
+			clientConnection->sendMsgToServer(from_redis, len_from_redis, buffer, client_socket);
+		}
+
+		
 
 	}
 	return 0;
