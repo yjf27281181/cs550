@@ -4,35 +4,22 @@
 
 AppToP2Server::AppToP2Server()
 {
+	this->Pool = new CThreadPool(10);
 }
 
 int AppToP2Server::Run()
 {
-	char buffer[1024] = { 0 }, from_redis[1024] = { 0 };
 	BasicConnection * clientConnection = new BasicConnection(8080);
 	clientConnection->bindAndListen();
-	BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
-	redisConnection->connectToServer();
-
 	while (true) {
-
+		char buffer[1024] = { 0 };
 		int client_socket = clientConnection->acceptContent();
 		int from_app_len = read(client_socket, buffer, 1024);
 
 		// network is busy
-		//clientConnection->sendMsgToServer(buffer, from_app_len, buffer, client_socket);
-		//return 0;
-
+		printf("%d - %s\n", from_app_len, buffer);
 		bool isRnicBusy = true;
-
-		if (isRnicBusy) {
-			/*send back a redirect msg*/
-			int len_from_redis = redisConnection->sendMsgToServer(buffer, from_app_len, from_redis, -1);
-			clientConnection->sendMsgToServer(from_redis, len_from_redis, buffer, client_socket);
-		}
-
-		
-
+		Pool->AddTask(new AppToP2Task(clientConnection, buffer, from_app_len, client_socket));
 	}
 	return 0;
 }

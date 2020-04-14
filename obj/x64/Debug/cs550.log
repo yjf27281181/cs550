@@ -1,19 +1,23 @@
-﻿生成启动时间为 2020/4/2 星期四 14:36:12。
+﻿生成启动时间为 2020/4/14 星期二 13:32:16。
      1>项目“C:\YanJF\coding_files\cpp\cs550\cs550\cs550.vcxproj”在节点 2 上(Build 个目标)。
      1>InitializeBuildStatus:
-         正在创建“C:\YanJF\coding_files\cpp\cs550\cs550\obj\x64\Debug\cs550.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+         正在对“C:\YanJF\coding_files\cpp\cs550\cs550\obj\x64\Debug\cs550.tlog\unsuccessfulbuild”执行 Touch 任务。
        _ValidateSources:
          Validating sources
        _CopySources:
          Copying sources remotely to '192.168.0.200'
-         Copying file 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp' to '/root/projects/cs550/AppToP2Server.cpp'
+         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp', as it is up to date.
+         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp', as it is up to date.
+         Copying file 'C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectTask.cpp' to '/root/projects/cs550/P2RedirectTask.cpp'
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.h', as it is up to date.
+         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.h', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.h', as it is up to date.
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.h', as it is up to date.
+         Copying file 'C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectTask.h' to '/root/projects/cs550/P2RedirectTask.h'
          Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h', as it is up to date.
        _ValidateValidArchitecture:
          Validating architecture
@@ -32,29 +36,150 @@
                                                                          ^
          
      1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
-     1>C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning :   BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
-C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning :                                                                                ^
-     1>C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
-C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :    int from_app_len = read(client_socket, buffer, 1024);
-C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :                                                       ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(17,54): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(17,54): warning :    int from_app_len = read(client_socket, buffer, 1024);
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(17,54): warning :                                                       ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(21,8): warning : unused variable ‘isRnicBusy’ [-Wunused-variable]
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(21,8): warning :    bool isRnicBusy = true;
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(21,8): warning :         ^
          Done compiling '/root/projects/cs550/AppToP2Server.cpp'
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp', as it is up to date.
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp', as it is up to date.
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp', as it is up to date.
-         Skipping 'C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp', as it is up to date.
+         Invoking 'g++'
          /root/projects/cs550/AppToP2Server.cpp: In member function ‘virtual int AppToP2Server::Run()’:
-         /root/projects/cs550/AppToP2Server.cpp:14:79: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-           BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
-                                                                                        ^
-         /root/projects/cs550/AppToP2Server.cpp:20:54: warning: conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+         /root/projects/cs550/AppToP2Server.cpp:17:54: warning: conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
             int from_app_len = read(client_socket, buffer, 1024);
                                                                ^
+         /root/projects/cs550/AppToP2Server.cpp:21:8: warning: unused variable ‘isRnicBusy’ [-Wunused-variable]
+            bool isRnicBusy = true;
+                 ^
+         
+         g++ -c -x c++ /root/projects/cs550/AppToP2Task.cpp -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -g2 -gdwarf-2 -o "/root/projects/cs550/obj/x64/Debug/AppToP2Task.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         AppToP2Task.cpp
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(22,79): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(22,79): warning :   BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(22,79): warning :                                                                                ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(31,28): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(31,28): warning :   int test_len = strlen(test);
+C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(31,28): warning :                             ^
+         Done compiling '/root/projects/cs550/AppToP2Task.cpp'
+         Invoking 'g++'
+         g++ -c -x c++ /root/projects/cs550/BasicConnection.cpp -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -g2 -gdwarf-2 -o "/root/projects/cs550/obj/x64/Debug/BasicConnection.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         BasicConnection.cpp
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(18,31): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(18,31): warning :   address.sin_port = htons(port);
+C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(18,31): warning :                                ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(88,67): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(88,67): warning :    from_server_len = read(server_fd, buffer_from_server, buffer_len);
+C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(88,67): warning :                                                                    ^
+         Done compiling '/root/projects/cs550/BasicConnection.cpp'
+         Invoking 'g++'
+         g++ -c -x c++ /root/projects/cs550/main.cpp -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -g2 -gdwarf-2 -o "/root/projects/cs550/obj/x64/Debug/main.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         main.cpp
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning : extra tokens at end of #include directive [enabled by default]
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning :  #include "AppToP2Server.h";
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning :                            ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning : extra tokens at end of #include directive [enabled by default]
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning :  #include "P2RedirectServer.h";
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning :                               ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning : extra tokens at end of #include directive [enabled by default]
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :  #include "Thread.h";
+C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :                     ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+         Done compiling '/root/projects/cs550/main.cpp'
+         Invoking 'g++'
+         g++ -c -x c++ /root/projects/cs550/P2RedirectServer.cpp -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -g2 -gdwarf-2 -o "/root/projects/cs550/obj/x64/Debug/P2RedirectServer.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         P2RedirectServer.cpp
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(19,54): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(19,54): warning :    int from_app_len = read(client_socket, buffer, 1024);
+C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(19,54): warning :                                                       ^
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(12,29): warning : unused variable ‘from_redis’ [-Wunused-variable]
+C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(12,29): warning :   char buffer[1024] = { 0 }, from_redis[1024] = { 0 };
+C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(12,29): warning :                              ^
+         Done compiling '/root/projects/cs550/P2RedirectServer.cpp'
+         Invoking 'g++'
+         g++ -c -x c++ /root/projects/cs550/P2RedirectTask.cpp -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -g2 -gdwarf-2 -o "/root/projects/cs550/obj/x64/Debug/P2RedirectTask.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         P2RedirectTask.cpp
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+         Done compiling '/root/projects/cs550/P2RedirectTask.cpp'
+         Invoking 'g++'
+         g++ -c -x c++ /root/projects/cs550/Thread.cpp -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -I "/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -g2 -gdwarf-2 -o "/root/projects/cs550/obj/x64/Debug/Thread.o" -Wall -Wswitch -W"no-deprecated-declarations" -W"empty-body" -Wconversion -W"return-type" -Wparentheses -W"no-format" -Wuninitialized -W"unreachable-code" -W"unused-function" -W"unused-value" -W"unused-variable" -O0 -fno-strict-aliasing -fno-omit-frame-pointer -fthreadsafe-statics -fexceptions -frtti -std=c++11
+         Thread.cpp
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+     1>C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp(161,28): warning : conversion to ‘int’ from ‘std::deque<CTask*>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp(161,28): warning :   return m_deqTaskList.size();
+C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp(161,28): warning :                             ^
+         Done compiling '/root/projects/cs550/Thread.cpp'
+         In file included from /root/projects/cs550/AppToP2Task.h:3:0,
+                          from /root/projects/cs550/AppToP2Task.cpp:1:
+         /root/projects/cs550/Thread.h: In constructor ‘CTask::CTask(std::string&)’:
+         /root/projects/cs550/Thread.h:28:64: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+           CTask(string &taskName) : m_strTaskName(taskName), connfd(NULL) {}
+                                                                         ^
+         /root/projects/cs550/AppToP2Task.cpp: In member function ‘virtual int AppToP2Task::Run()’:
+         /root/projects/cs550/AppToP2Task.cpp:22:79: warning: deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+           BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
+                                                                                        ^
+         /root/projects/cs550/AppToP2Task.cpp:31:28: warning: conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+           int test_len = strlen(test);
+                                     ^
+         /root/projects/cs550/BasicConnection.cpp: In constructor ‘BasicConnection::BasicConnection(int, int)’:
+         /root/projects/cs550/BasicConnection.cpp:18:31: warning: conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+           address.sin_port = htons(port);
+                                        ^
+         /root/projects/cs550/BasicConnection.cpp: In member function ‘int BasicConnection::sendMsgToServer(char*, int, char*, int)’:
+         /root/projects/cs550/BasicConnection.cpp:88:67: warning: conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+            from_server_len = read(server_fd, buffer_from_server, buffer_len);
+                                                                            ^
+         /root/projects/cs550/main.cpp:9:27: warning: extra tokens at end of #include directive [enabled by default]
+          #include "AppToP2Server.h";
+                                    ^
+         /root/projects/cs550/main.cpp:10:30: warning: extra tokens at end of #include directive [enabled by default]
+          #include "P2RedirectServer.h";
+                                       ^
+         /root/projects/cs550/main.cpp:11:20: warning: extra tokens at end of #include directive [enabled by default]
+          #include "Thread.h";
+                             ^
+         In file included from /root/projects/cs550/AppToP2Server.h:3:0,
+                          from /root/projects/cs550/main.cpp:9:
+         /root/projects/cs550/Thread.h: In constructor ‘CTask::CTask(std::string&)’:
+         /root/projects/cs550/Thread.h:28:64: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+           CTask(string &taskName) : m_strTaskName(taskName), connfd(NULL) {}
+                                                                         ^
+         In file included from /root/projects/cs550/P2RedirectTask.h:2:0,
+                          from /root/projects/cs550/P2RedirectServer.h:2,
+                          from /root/projects/cs550/P2RedirectServer.cpp:1:
+         /root/projects/cs550/Thread.h: In constructor ‘CTask::CTask(std::string&)’:
+         /root/projects/cs550/Thread.h:28:64: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+           CTask(string &taskName) : m_strTaskName(taskName), connfd(NULL) {}
+                                                                         ^
+         /root/projects/cs550/P2RedirectServer.cpp: In member function ‘virtual int P2RedirectServer::Run()’:
+         /root/projects/cs550/P2RedirectServer.cpp:19:54: warning: conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+            int from_app_len = read(client_socket, buffer, 1024);
+                                                               ^
+         /root/projects/cs550/P2RedirectServer.cpp:12:29: warning: unused variable ‘from_redis’ [-Wunused-variable]
+           char buffer[1024] = { 0 }, from_redis[1024] = { 0 };
+                                      ^
+         In file included from /root/projects/cs550/P2RedirectTask.h:2:0,
+                          from /root/projects/cs550/P2RedirectTask.cpp:1:
+         /root/projects/cs550/Thread.h: In constructor ‘CTask::CTask(std::string&)’:
+         /root/projects/cs550/Thread.h:28:64: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+           CTask(string &taskName) : m_strTaskName(taskName), connfd(NULL) {}
+                                                                         ^
+         In file included from /root/projects/cs550/Thread.cpp:9:0:
+         /root/projects/cs550/Thread.h: In constructor ‘CTask::CTask(std::string&)’:
+         /root/projects/cs550/Thread.h:28:64: warning: converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+           CTask(string &taskName) : m_strTaskName(taskName), connfd(NULL) {}
+                                                                         ^
+         /root/projects/cs550/Thread.cpp: In member function ‘int CThreadPool::getTaskSize()’:
+         /root/projects/cs550/Thread.cpp:161:28: warning: conversion to ‘int’ from ‘std::deque<CTask*>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+           return m_deqTaskList.size();
+                                     ^
          
        Link:
          Linking objects
          Invoking 'ld'
-         g++ -o "/root/projects/cs550/bin/x64/Debug/cs550.out" -Wl,--no-undefined -Wl,-L"/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -Wl,-L"/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -Wl,-L"/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /root/projects/cs550/obj/x64/Debug/AppToP2Server.o /root/projects/cs550/obj/x64/Debug/BasicConnection.o /root/projects/cs550/obj/x64/Debug/main.o /root/projects/cs550/obj/x64/Debug/P2RedirectServer.o /root/projects/cs550/obj/x64/Debug/Thread.o -lpthread
+         g++ -o "/root/projects/cs550/bin/x64/Debug/cs550.out" -Wl,--no-undefined -Wl,-L"/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader/include" -Wl,-L"/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr/linuxheader" -Wl,-L"/root/projects/cs550/../../../../software_code/S/Visual Studio/2017/Professional/Common7/IDE/VC/Linux/include/usr" -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /root/projects/cs550/obj/x64/Debug/AppToP2Server.o /root/projects/cs550/obj/x64/Debug/AppToP2Task.o /root/projects/cs550/obj/x64/Debug/BasicConnection.o /root/projects/cs550/obj/x64/Debug/main.o /root/projects/cs550/obj/x64/Debug/P2RedirectServer.o /root/projects/cs550/obj/x64/Debug/P2RedirectTask.o /root/projects/cs550/obj/x64/Debug/Thread.o -lpthread
          Done linking, output file name: '/root/projects/cs550/bin/x64/Debug/cs550.out'
          Copying file '/root/projects/cs550/bin/x64/Debug/cs550.out' to 'C:\YanJF\coding_files\cpp\cs550\cs550\bin\x64\Debug\cs550.out'
          cs550.vcxproj -> C:\YanJF\coding_files\cpp\cs550\cs550\bin\x64\Debug\cs550.out
@@ -68,14 +193,49 @@ C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :       
        “C:\YanJF\coding_files\cpp\cs550\cs550\cs550.vcxproj”(Build 目标) (1) ->
        (ClCompile 目标) -> 
          C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
-         C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
-       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning :   BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
-       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(14,79): warning :                                                                                ^
-         C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
-       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :    int from_app_len = read(client_socket, buffer, 1024);
-       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(20,54): warning :                                                       ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(17,54): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(17,54): warning :    int from_app_len = read(client_socket, buffer, 1024);
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(17,54): warning :                                                       ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(21,8): warning : unused variable ‘isRnicBusy’ [-Wunused-variable]
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(21,8): warning :    bool isRnicBusy = true;
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Server.cpp(21,8): warning :         ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+         C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(22,79): warning : deprecated conversion from string constant to ‘char*’ [-Wwrite-strings]
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(22,79): warning :   BasicConnection * redisConnection = new BasicConnection("192.168.0.200", 7000);
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(22,79): warning :                                                                                ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(31,28): warning : conversion to ‘int’ from ‘size_t {aka long unsigned int}’ may alter its value [-Wconversion]
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(31,28): warning :   int test_len = strlen(test);
+       C:\YanJF\coding_files\cpp\cs550\cs550\AppToP2Task.cpp(31,28): warning :                             ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(18,31): warning : conversion to ‘uint16_t {aka short unsigned int}’ from ‘int’ may alter its value [-Wconversion]
+       C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(18,31): warning :   address.sin_port = htons(port);
+       C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(18,31): warning :                                ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(88,67): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+       C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(88,67): warning :    from_server_len = read(server_fd, buffer_from_server, buffer_len);
+       C:\YanJF\coding_files\cpp\cs550\cs550\BasicConnection.cpp(88,67): warning :                                                                    ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning : extra tokens at end of #include directive [enabled by default]
+       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning :  #include "AppToP2Server.h";
+       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(9,27): warning :                            ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning : extra tokens at end of #include directive [enabled by default]
+       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning :  #include "P2RedirectServer.h";
+       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(10,30): warning :                               ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning : extra tokens at end of #include directive [enabled by default]
+       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :  #include "Thread.h";
+       C:\YanJF\coding_files\cpp\cs550\cs550\main.cpp(11,20): warning :                     ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+         C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+         C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(19,54): warning : conversion to ‘int’ from ‘ssize_t {aka long int}’ may alter its value [-Wconversion]
+       C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(19,54): warning :    int from_app_len = read(client_socket, buffer, 1024);
+       C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(19,54): warning :                                                       ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(12,29): warning : unused variable ‘from_redis’ [-Wunused-variable]
+       C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(12,29): warning :   char buffer[1024] = { 0 }, from_redis[1024] = { 0 };
+       C:\YanJF\coding_files\cpp\cs550\cs550\P2RedirectServer.cpp(12,29): warning :                              ^
+         C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+         C:\YanJF\coding_files\cpp\cs550\cs550\Thread.h(28,64): warning : converting to non-pointer type ‘int’ from NULL [-Wconversion-null]
+         C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp(161,28): warning : conversion to ‘int’ from ‘std::deque<CTask*>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+       C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp(161,28): warning :   return m_deqTaskList.size();
+       C:\YanJF\coding_files\cpp\cs550\cs550\Thread.cpp(161,28): warning :                             ^
 
-    3 个警告
+    18 个警告
     0 个错误
 
-已用时间 00:00:03.60
+已用时间 00:00:08.78

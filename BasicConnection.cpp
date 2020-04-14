@@ -76,7 +76,7 @@ void BasicConnection::connectToServer()
 int BasicConnection::sendMsgToServer(char* buffer, int buffer_len ,char* buffer_from_server, int socket)
 {
 	int from_server_len = 0;
-	std::cout << server_fd << " " << buffer << " " << buffer_len << std::endl;
+	std::cout << "server_fd: " <<server_fd << " buffer:" << buffer << " buffer_len:" << buffer_len << std::endl;
 	try {
 		if (socket == -1) {
 			send(server_fd, buffer, buffer_len, 0);

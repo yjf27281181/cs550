@@ -1,3 +1,7 @@
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 import redis.clients.jedis.Jedis;
@@ -23,6 +27,8 @@ public class AppServer {
                 result = connection.get(dq.value);
             } else if (command.equals("set")) {
                 // TODO:
+            } else {
+
             }
             client.isAvailable = true;
         } else if (client != null && !client.isAvailable){
@@ -50,6 +56,8 @@ public class AppServer {
             Jedis connection = newClient.jedis;
             if (command.equals("get")) {
                 result = connection.get(dq.value);
+
+                ;
             } else if (command.equals("set")) {
                 // TODO:
             }
@@ -84,9 +92,17 @@ public class AppServer {
         DummyRequest[] requests = {dq1};
 
         for (DummyRequest dq : requests) {
-            System.out.println(processRequest(dq));
-            DummyRequest dq2 = new DummyRequest("2", "get");
-            System.out.println(processRequest(dq2));
+            String result = processRequest(dq);
+            System.out.println(result);
+            try {
+                Socket socket = new Socket("192.168.0.200", 8081);
+                OutputStreamWriter osw =new OutputStreamWriter(socket.getOutputStream(), "UTF-8");
+                osw.write(result, 0, result.length());
+                osw.flush();
+                osw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }

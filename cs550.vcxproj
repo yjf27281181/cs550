@@ -79,15 +79,19 @@
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="AppToP2Server.cpp" />
+    <ClCompile Include="AppToP2Task.cpp" />
     <ClCompile Include="BasicConnection.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="P2RedirectServer.cpp" />
+    <ClCompile Include="P2RedirectTask.cpp" />
     <ClCompile Include="Thread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppToP2Server.h" />
+    <ClInclude Include="AppToP2Task.h" />
     <ClInclude Include="BasicConnection.h" />
     <ClInclude Include="P2RedirectServer.h" />
+    <ClInclude Include="P2RedirectTask.h" />
     <ClInclude Include="Thread.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
