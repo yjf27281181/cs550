@@ -23,12 +23,22 @@ int P2RedirectTask::Run()
 
 	size_t pos = 0;
 	string token;
+	vector<std::string> commands;
 	while ((pos = redirectCommand.find(delimiter)) != std::string::npos) {
 		token = redirectCommand.substr(0, pos);
-		cout << token << endl;
+		commands.push_back(token);
 		redirectCommand.erase(0, pos + delimiter.length());
+	
 	}
-	cout << redirectCommand << endl;
+	commands.push_back(redirectCommand);
+	cout << "command type:" << commands[0] << endl;
+	cout << "redis name:" << commands[1] << endl;
+	cout << "memery address:" << commands[2] << endl;
+	cout << "memery offset:" << commands[3] << endl;
+	cout << "data length:" << commands[4] << endl;
+
+	// using above information to get data from rdma:
+
 	return 0;
 }
 

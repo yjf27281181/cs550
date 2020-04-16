@@ -2,6 +2,8 @@
 #include <string>
 #include "Thread.h"
 #include "BasicConnection.h"
+#include <vector>
+#include <iostream>
 
 using namespace std;
 class AppToP2Task : public CTask
