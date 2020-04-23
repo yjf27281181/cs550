@@ -56,6 +56,9 @@ public class AppServer {
             Jedis connection = newClient.jedis;
             if (command.equals("get")) {
                 result = connection.get(dq.value);
+                System.out.println(result);
+                result = connection.get(""+2);
+                System.out.println(result);
 
                 ;
             } else if (command.equals("set")) {
@@ -93,16 +96,16 @@ public class AppServer {
 
         for (DummyRequest dq : requests) {
             String result = processRequest(dq);
-            System.out.println(result);
-            try {
-                Socket socket = new Socket("192.168.0.200", 8081);
-                OutputStreamWriter osw =new OutputStreamWriter(socket.getOutputStream(), "UTF-8");
-                osw.write(result, 0, result.length());
-                osw.flush();
-                osw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println("result: "+result);
+//            try {
+//                Socket socket = new Socket("192.168.0.200", 8081);
+//                OutputStreamWriter osw =new OutputStreamWriter(socket.getOutputStream(), "UTF-8");
+//                osw.write(result, 0, result.length());
+//                osw.flush();
+//                osw.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
 
     }

@@ -4,7 +4,6 @@
 
 BasicConnection::BasicConnection(int port, int type)
 {
-	printf("initial connection \n");
 	server_fd = 0;
 	if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
 		perror("socket failed");
@@ -42,7 +41,7 @@ void BasicConnection::bindAndListen()
 		perror("listen");
 		exit(EXIT_FAILURE);
 	}
-	printf("bind port success \n");
+	printf("----------bind port success------------- \n");
 }
 
 
@@ -78,21 +77,25 @@ int BasicConnection::sendMsgToServer(char* buffer, int buffer_len ,char* buffer_
 	int from_server_len = 0;
 	std::cout << "server_fd: " <<server_fd << " buffer:" << buffer << " buffer_len:" << buffer_len << std::endl;
 	try {
-		if (socket == -1) {
-			send(server_fd, buffer, buffer_len, 0);
-		}
-		else {
-			send(socket, buffer, buffer_len, 0);
+		if (buffer_len > 0) {
+			if (socket == -1) {
+				send(server_fd, buffer, buffer_len, 0);
+			}
+			else {
+				send(socket, buffer, buffer_len, 0);
+			}
+
+			from_server_len = read(server_fd, buffer_from_server, buffer_len);
+			return from_server_len;
 		}
 		
-		from_server_len = read(server_fd, buffer_from_server, buffer_len);
 	}
 	catch (std::exception& e) {
 		printf("errrno is:%d", errno);
 
 	}
 	
-	return from_server_len;
+	return -1;
 }
 
 

@@ -9,13 +9,13 @@ using namespace std;
 class AppToP2Task : public CTask
 {
 public:
-	AppToP2Task(BasicConnection* clientConnection, char* buffer, int from_app_len, int client_socket);
+	AppToP2Task(BasicConnection* clientConnection, int client_socket);
 	int Run();
 	~AppToP2Task();
 
 private:
 	BasicConnection* clientConnection;
-	char* buffer;
+	char buffer[1024] = { 0 };
 	int from_app_len;
 	int client_socket;
 	char* constructRedisReturn(string str);
