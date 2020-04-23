@@ -1,133 +1,146 @@
+package site.ycsb.db;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.logging.Logger;
+
+
 import redis.clients.jedis.Jedis;
+import site.ycsb.ByteIterator;
+import site.ycsb.Status;
+import site.ycsb.StringByteIterator;
 
-public class AppServer {
+public class P2Client {
 
-    static Map<String, String> p2Configuration;
-    static Map<String, JedisClient> connectionPool;
-    static Map<String, String> dataToP2;
+    private ConcurrentHashMap<Integer, String> p2Configuration;
+    private ConcurrentHashMap<Integer, Deque<Jedis>> connectionPool;
+    private ConcurrentHashMap<Integer, Integer> dataToP2;
 
-
-    public static String processRequest(DummyRequest dq) {
-
-            // hashfunction :x =  n % 3
-        String command = dq.command;
-        String p2Index = dataToP2.get(String.valueOf(Integer.parseInt(dq.value) % 3));
-        JedisClient client = connectionPool.get(p2Index);
-        String result = null;
-        if (client != null && client.isAvailable) {
-            client.isAvailable = false;
-            Jedis connection = client.jedis;
-            if (command.equals("get")) {
-                result = connection.get(dq.value);
-            } else if (command.equals("set")) {
-                // TODO:
-            } else {
-
-            }
-            client.isAvailable = true;
-        } else if (client != null && !client.isAvailable){
-            while (true) {
-                if (client.isAvailable) {
-                    client.isAvailable = false;
-                    Jedis connection = client.jedis;
-                    if (command.equals("get")) {
-                        result = connection.get(dq.value);
-                    } else if (command.equals("set")) {
-                        // TODO:
-                    }
-                    client.isAvailable = true;
-                    break;
-                }
-            }
-        } else { // client not exists
-            System.out.println(p2Index);
-            String[] hostAndPort = p2Configuration.get(p2Index).split(",");
-            String host = hostAndPort[0];
-            String port = hostAndPort[1];
-            JedisClient newClient = new JedisClient(new Jedis(host, Integer.parseInt(port)), false);
-            connectionPool.put(p2Index, newClient);
-
-            Jedis connection = newClient.jedis;
-            if (command.equals("get")) {
-                result = connection.get(dq.value);
-
-                ;
-            } else if (command.equals("set")) {
-                // TODO:
-            }
-            newClient.isAvailable = true;
-        }
-
-        return result;
-    }
-
-
-
-    public static void main(String[] args) {
-        p2Configuration = new HashMap<String, String>(){{
-            //put("0", "192.168.0.200,8080");
-            put("1", "192.168.0.200,8080");
-            put("2", "192.168.0.200,8081");
+    public P2Client() {
+        connectionPool = new ConcurrentHashMap<Integer, Deque<Jedis>>() {{
+            put(0, new ArrayDeque<>());
+            put(1, new ArrayDeque<>());
+            put(2, new ArrayDeque<>());
         }};
-        connectionPool = new HashMap<>();
-        dataToP2 = new HashMap<String, String>(){{
-            put("0", "0");
-            put("1", "1");
-            put("2", "2");
+        dataToP2 = new ConcurrentHashMap<Integer, Integer>() {{
+            put(0, 0);
+            put(1, 1);
+            put(2, 2);
+        }};
+        p2Configuration = new ConcurrentHashMap<Integer, String>() {{
+            put(0, "localhost,6379");
+            put(1, "localhost,6379");
+            put(2, "localhost,6379");
         }};
 
-        DummyRequest dq1 = new DummyRequest("1", "get");
-//        DummyRequest dq2 = new DummyRequest("2", "set");
-//        DummyRequest dq3 = new DummyRequest("3", "set");
-//        DummyRequest dq4 = new DummyRequest("4", "set");
-//        DummyRequest dq5 = new DummyRequest("5", "set");
-//        DummyRequest dq6 = new DummyRequest("6", "get");
+    }
 
-        DummyRequest[] requests = {dq1};
+    public Deque<Jedis> getConnections(int index) {
+        int p2Index = dataToP2.get(index);
+        Deque<Jedis> cs =  connectionPool.get(p2Index);
+        return cs;
+    }
 
-        for (DummyRequest dq : requests) {
-            String result = processRequest(dq);
-            System.out.println(result);
-            try {
-                Socket socket = new Socket("192.168.0.200", 8081);
-                OutputStreamWriter osw =new OutputStreamWriter(socket.getOutputStream(), "UTF-8");
-                osw.write(result, 0, result.length());
-                osw.flush();
-                osw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public String redirect(String res) {
+        char[] buffer = new char[1024];
+        int length = 0;
+        try {
+            Socket socket = new Socket("192.168.0.200", 8081);
+            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8);
+            InputStreamReader isr = new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8);
+            osw.write(res, 0, res.length());
+            osw.flush();
+            osw.close();
+
+            length = isr.read(buffer, 0, 1024);
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
+        return new String(buffer, 0, length);
     }
 
+    public String get(String key) {
+        int index = 0;
+//        if (key == null || key.equals("") || key.equals(" ")) {
+//        }
+//        else {
+//            index = key.hashCode() % 3;
+//        }
+        Deque<Jedis> connections = getConnections(index);
+        Jedis connection;
 
-}
-
-class DummyRequest {
-
-    public String value;
-    public String command;
-
-    public DummyRequest(String value, String command) {
-        this.value = value;
-        this.command = command;
+        if (connections.isEmpty()) {
+            String[] config = p2Configuration.get(index).split(",");
+            connection = new Jedis(config[0], Integer.parseInt(config[1]));
+        }
+        else {
+            connection = connections.getFirst();
+        }
+        String res = connection.get(key);
+        if (res.startsWith("redirect")) {
+            res = redirect(res);
+        }
+        connections.add(connection);
+        return res;
     }
 
-}
+    public Map<String, String> hgetAll(String key, Map<String, ByteIterator> result) {
+        int index = 0;
+        Deque<Jedis> connections = getConnections(index);
+        Jedis connection;
 
-class JedisClient {
-
-    public Jedis jedis;
-    public boolean isAvailable;
-    public JedisClient(Jedis jedis, boolean isAvailable) {
-        this.jedis = jedis;
-        this.isAvailable = isAvailable;
+        if (connections.isEmpty()) {
+            String[] config = p2Configuration.get(index).split(",");
+            connection = new Jedis(config[0], Integer.parseInt(config[1]));
+        }
+        else {
+            connection = connections.getFirst();
+        }
+        StringByteIterator.putAllAsByteIterators(result, connection.hgetAll(key));
+        Map<String, String> res = connection.hgetAll(key);
+//        if (res.startsWith("redirect")) {
+//            res = redirect(res);
+//        }
+        connections.add(connection);
+        return res;
     }
+
+    public List<String> hmget(String key, Set<String> fields, Map<String, ByteIterator> result) {
+        int index = 0;
+        Deque<Jedis> connections = getConnections(index);
+        Jedis connection;
+
+        if (connections.isEmpty()) {
+            String[] config = p2Configuration.get(index).split(",");
+            connection = new Jedis(config[0], Integer.parseInt(config[1]));
+        }
+        else {
+            connection = connections.getFirst();
+        }
+        String[] fieldArray
+                = (String[]) fields.toArray(new String[fields.size()]);
+        List<String> values = connection.hmget(key, fieldArray);
+        Iterator<String> fieldIterator = fields.iterator();
+        Iterator<String> valueIterator = values.iterator();
+
+        while (fieldIterator.hasNext() && valueIterator.hasNext()) {
+            result.put(fieldIterator.next(),
+                    new StringByteIterator(valueIterator.next()));
+        }
+        assert !fieldIterator.hasNext() && !valueIterator.hasNext();
+        List<String> res = connection.hmget(key, fieldArray);
+//        if (res.startsWith("redirect")) {
+//            res = redirect(res);
+//        }
+        connections.add(connection);
+        return res;
+    }
+
 }
